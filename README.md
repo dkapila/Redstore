@@ -1,4 +1,4 @@
 Redstore
 ========
 
-App Store for an editor
+App Store for a text editor
