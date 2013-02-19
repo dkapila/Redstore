@@ -1,5 +1,10 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
+  header 
+    h1(id = 'title') RedStore
+    p(id = 'signIn')
+      a(href = '/login') Sign In
+    p(id = 'registerService')
+      a(href = '/registerService') Register A Service
+  body
+    p This is some Text.
