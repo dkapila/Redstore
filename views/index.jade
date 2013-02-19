@@ -1,14 +1,13 @@
 extends layout
 block content
   header 
-    h1(id = 'title') RedStore
-    p(id = 'signIn')
-      a(href = '/login') Sign In
+    h1(id = 'title') RedStore  
+  #LoginForm
+    form(action='/welcome', method = 'post')
+      input(type='text',  name = 'username') 
+      input(type='password', name = 'password')
+      button(type='submit') Sign In    
     p(id = 'registerService')
       a(href = '/registerService') Register A Service
   body
     p This is some Text.
-
-block content
-  h1= title
-  p Welcome to #{title}

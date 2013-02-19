@@ -40,25 +40,33 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-
-
-app.get('/login', routelist.login);
+app.get('/login', routes.index);
+app.get('/signout', routelist.signOut);
 
 app.post('/welcome', 
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
   function(req, res) {
-    if (req.user.role == 'Admin')
-      res.redirect('/adim');
-    else 
-      res.redirect('/user');
+    if (req.user.role == 'Admin') {
+      res.render('admin', {title : 'RedStore Dashboard'});
+    }
+    else {
+      res.render('user', {title : 'RedStore Dashboard'});
+    }
   });
 
-app.get('/admin', ensureAuthenticated, function(req, res){
-  if (req.user.role == 'Admin')
-    res.render('/account');
-  else 
-    res.render('/user');
-});
+// app.get('/admin', ensureAuthenticated, function(req, res){
+//   if (req.user.role == 'Admin')
+//     res.redirect('/admin');
+//   else 
+//     res.redirect('/user');
+// });
+
+// app.get('/user', ensureAuthenticated, function(req, res){
+//   if (req.user.role == 'Admin')
+//     res.redirect('/admin');
+//   else 
+//     res.redirect('/user');
+// });
 
 app.get('/logout', function(req, res){
   req.logout();

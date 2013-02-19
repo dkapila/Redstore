@@ -7,11 +7,10 @@ var passport  = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , flash = require ('connect-flash');
 
-
-exports.login = function(req, res){
-  res.render('login', { title: 'Express' });
-};
-
+exports.signOut = function (req, res) {
+  req.logout();
+  res.redirect('/');
+}
 
 var users = [
     { id: 1, role:'Admin', username: 'bob', password: 'secret', email: 'bob@example.com' }
