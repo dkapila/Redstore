@@ -1,13 +1,15 @@
 extends layout
 block content
   header 
-    h1(id = 'title') RedStore  
-  #LoginForm
-    form(action='/welcome', method = 'post')
-      input(type='text',  name = 'username') 
-      input(type='password', name = 'password')
-      button(type='submit') Sign In    
+    h1(id = 'title') RedStore 
+
+  form(id = 'loginForm', action = '/welcome', method = 'post')
+    input(type='text', name = 'username', id = 'uname', placeholder = 'Username.')
+    br
+    input(type='password', name = 'password', id = 'pass', placeholder = 'Password')
+    br 
+    input(type = 'submit', value = 'Send', class = 'btn btn-primary', id = 'feedsendbutton')
     p(id = 'registerService')
       a(href = '/registerService') Register A Service
-  body
-    p This is some Text.
+
+  footer

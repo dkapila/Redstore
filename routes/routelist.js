@@ -12,6 +12,15 @@ exports.signOut = function (req, res) {
   res.redirect('/');
 }
 
+exports.authenticate = function (req, res) {
+    if (req.user.role == 'Admin') {
+      res.render('admin', {title : 'RedStore Dashboard'});
+    }
+    else {
+      res.render('user', {title : 'RedStore Dashboard'});
+    }
+}
+
 var users = [
     { id: 1, role:'Admin', username: 'bob', password: 'secret', email: 'bob@example.com' }
   , { id: 2, role:'User',  username: 'joe', password: 'birthday', email: 'joe@example.com' }

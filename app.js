@@ -45,14 +45,7 @@ app.get('/signout', routelist.signOut);
 
 app.post('/welcome', 
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
-  function(req, res) {
-    if (req.user.role == 'Admin') {
-      res.render('admin', {title : 'RedStore Dashboard'});
-    }
-    else {
-      res.render('user', {title : 'RedStore Dashboard'});
-    }
-  });
+  routelist.authenticate);
 
 // app.get('/admin', ensureAuthenticated, function(req, res){
 //   if (req.user.role == 'Admin')

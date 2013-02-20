@@ -1,20 +1,54 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#wrap {
+  width : 920px;
+  padding : 50px;
 }
-a {
-  color: #00b7ff;
+html {
+	 overflow-y: scroll;
 }
-header {
-	height: 100px;
+html, body {
+	height: 100%;
+	background: #ebf7ff!important;
 }
 
-#signIn {
+header {
+	font-family: 'helvetica neue', helvetic;
+	position: fixed;
+	padding-left: 50px;
+	top: 0;	
+	left: 0;
+	height: 38px;
+	width: 100%;
+	background: #364045;
+	z-index: 15;
+}
+header h1 {
+	font-size: 30px;
+	font-weight: normal;
 	position: relative;
-	width: 100px;
+	color: white;
+	display: inline;
+}
+
+#loginForm {
+	margin-left: 50px;
 }
 
 #registerService {
+	margin-top : 20px;
+}
+
+#signOut {
+	position: fixed;
+	right : 10px;
+	top: 10px;
+}
+
+.adminDashboardButton {
+	border-radius: 0px!important;
+	width: 100px;
+}
+
+#adminPageTitle {
 	position: relative;
-	width: 300px;
+	text-align: center;
 }

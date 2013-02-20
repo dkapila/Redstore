@@ -1,8 +1,23 @@
 extends layout
 block content
   header 
-    h1(id = 'title') RedStore
-    p(id = 'signOut')
-      a(href = '/signout') Sign Out
-  body
-    p Welcome to Admin Page
+   h1(id = 'title') RedStore 
+
+   h3(id = 'adminPageTitle') Admin Page
+
+   h3
+     a(href = '/services', class = 'btn adminDashboardButton') Services  
+
+   h3
+     a(href = '/repositories', class = 'btn adminDashboardButton') Repositories 
+
+   h3
+     a(href = '/users', class = 'btn adminDashboardButton') Users  
+
+   h3
+     a(href = '/projects', class = 'btn adminDashboardButton') Projects  
+
+   p(id = 'signOut')
+     a(href = '/signout') Sign Out
+
+  footer
