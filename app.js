@@ -5,11 +5,11 @@
 
 var express   = require('express')
   , routes    = require('./routes')
-  , user      = require('./routes/user')
   , routelist = require('./routes/routelist')
+  , authenticate = require ('./routes/authenticate')
   , http      = require('http')
   , path      = require('path')
-  , flash = require('connect-flash')
+  , flash     = require('connect-flash')
   , passport  = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
 

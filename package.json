@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "RedStore",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -11,6 +11,8 @@
     "connect-flash": "*",
     "stylus": "*",
     "passport-local": "*",
-    "passport": "*"
+    "passport": "*",
+    "mongoose": "3.5.6",
+    "mongodb" : "1.2.1"
   }
 }
