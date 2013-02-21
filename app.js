@@ -47,20 +47,6 @@ app.post('/welcome',
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
   routelist.authenticate);
 
-// app.get('/admin', ensureAuthenticated, function(req, res){
-//   if (req.user.role == 'Admin')
-//     res.redirect('/admin');
-//   else 
-//     res.redirect('/user');
-// });
-
-// app.get('/user', ensureAuthenticated, function(req, res){
-//   if (req.user.role == 'Admin')
-//     res.redirect('/admin');
-//   else 
-//     res.redirect('/user');
-// });
-
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');

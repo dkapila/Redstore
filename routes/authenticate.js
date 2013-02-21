@@ -3,33 +3,16 @@
  * Part of passport.js used for authentication.
  */
 
+var mongoose   = require('mongoose');
+var Project    = require('../models/project');
+var Service    = require('../models/service');
+var User       = require('../models/user');
+var Repository = require('../models/repository');
+var config     = require ('../config.json');
+
 var passport  = require('passport')
   , LocalStrategy = require('passport-local').Strategy
   , flash = require ('connect-flash');
-
-var users = [
-    { id: 1, role:'Admin', username: 'bob', password: 'secret', email: 'bob@example.com' }
-  , { id: 2, role:'User',  username: 'joe', password: 'birthday', email: 'joe@example.com' }
-];
-
-function findById(id, fn) {
-  var idx = id - 1;
-  if (users[idx]) {
-    fn(null, users[idx]);
-  } else {
-    fn(new Error('User ' + id + ' does not exist'));
-  }
-}
-
-function findByUsername(username, fn) {
-  for (var i = 0, len = users.length; i < len; i++) {
-    var user = users[i];
-    if (user.username === username) {
-      return fn(null, user);
-    }
-  }
-  return fn(null, null);
-}
 
 // Passport session setup.
 //   To support persistent login sessions, Passport needs to be able to
@@ -47,6 +30,14 @@ passport.deserializeUser(function(id, done) {
 });
 
 
+var user = mongoose.model('user');
+
+// user.find({}, function(err,todos) {
+//   todos.forEach(function(todo) {
+//     console.log(todo);
+    
+//   })    
+// });
 // Use the LocalStrategy within Passport.
 //   Strategies in passport require a `verify` function, which accept
 //   credentials (in this case, a username and password), and invoke a callback
@@ -56,17 +47,20 @@ passport.use(new LocalStrategy(
   function(username, password, done) {
     // asynchronous verification, for effect...
     process.nextTick(function () {
-      
-      // Find the user by username.  If there is no user with the given
-      // username, or the password is not correct, set the user to `false` to
-      // indicate failure and set a flash message.  Otherwise, return the
-      // authenticated `user`.
-      findByUsername(username, function(err, user, role) {
-        if (err) { return done(err); }
-        if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
-        if (user.password != password) { return done(null, false, { message: 'Invalid password' }); }
-        return done(null, user, role);
-      })
+      user.findOne({name: username}, function(err,doc){
+        //chek if such user exists
+        if (doc !== null) {
+          if (doc.password == password) {
+            return done (null, doc, doc.role);
+          }
+          else {
+            return done (null, false, {message : 'Invalid Password'});
+          }
+        }
+        else {
+          return done (null, null, {message : 'Invalid User'});
+        }
+      });
     });
   }
 ));

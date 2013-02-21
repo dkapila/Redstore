@@ -13,7 +13,7 @@ var config     = require ('../config.json');
 mongoose.connect(config.url);
 
 exports.authenticate = function (req, res) {
-    if (req.user.role == 'Admin') {
+    if (req.user.role == 1) {
       res.render('admin', {title : 'RedStore Dashboard'});
     }
     else {
