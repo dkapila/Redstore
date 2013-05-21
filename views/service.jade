@@ -7,6 +7,14 @@ block content
 
 	#adminPanel
 		h2 Welcome Admin!
+		#listItem Services
+		- each service in services
+			#serv
+				p	Service  Name : #{service.name}
+				p   Provider Name : #{service.user}
+				p   Description   : #{service.description}
+				p   Enabled       : #{service.enabled}
+
 		a(href = '/admin/services', class = 'adminPanelBtn') Services
 		a(href = '/admin/users', class = 'adminPanelBtn') Users
 		a(href = '/admin/projects', class = 'adminPanelBtn') Projects

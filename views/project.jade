@@ -7,6 +7,15 @@ block content
 
 	#adminPanel
 		h2 Welcome Admin!
+
+		button(class = 'btn btn-primary', id ='makeProjectBtn')	Make New Project
+
+		#listItem Projects
+		- each project in projects
+			#serv
+				p	Service  Name : #{project.name}
+				p   Provider Name : #{project.owner}
+
 		a(href = '/admin/services', class = 'adminPanelBtn') Services
 		a(href = '/admin/users', class = 'adminPanelBtn') Users
 		a(href = '/admin/projects', class = 'adminPanelBtn') Projects

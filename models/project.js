@@ -7,8 +7,8 @@ var Schema = mongoose.Schema;
 // Define Schema
 
 var projectSchema = new Schema({
-   user      : String,
    name      : String,
+   owner     : String,
 });
 
 module.exports = mongoose.model('Project', projectSchema);

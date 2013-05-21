@@ -7,6 +7,12 @@ block content
 
 	#adminPanel
 		h2 Welcome Admin!
+		#listItem Users (role 1 = user, role 2 = admin)
+		- each user in users
+			#serv
+				p	Name : #{user.name}
+				p   Role : #{user.role}
+
 		a(href = '/admin/services', class = 'adminPanelBtn') Services
 		a(href = '/admin/users', class = 'adminPanelBtn') Users
 		a(href = '/admin/projects', class = 'adminPanelBtn') Projects

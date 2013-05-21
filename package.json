@@ -10,8 +10,6 @@
     "jade": "*",
     "connect-flash": "*",
     "stylus": "*",
-    "passport-local": "*",
-    "passport": "*",
     "mongoose": "3.5.6",
     "mongodb" : "1.2.1"
   }

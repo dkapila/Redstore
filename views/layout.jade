@@ -1,9 +1,13 @@
 doctype 5
-html
+html(manifest='cache.manifest')
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-    body
-        #wrap
-        block content
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lato:300')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Droid+Sans')
+    link(rel='stylesheet', href='/css/style.css')
+    script(src='/javascripts/lib/jquery-1.9.1.js')
+    script(src='/javascripts/lib/jquery-ui-1.10.2.custom.min.js')
+  body
+    #wrap
+      block content

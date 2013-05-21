@@ -1,14 +1,9 @@
 extends layout
+
 block content
-  header 
-   h1(id = 'title') RedStore 
+	header 
+		h1(id = 'mainTitle') RedStore
+		a(href = '/signout', id = 'signout')	Sign out
 
-   h3(id = 'adminPageTitle') User Page
-
-   h3
-     a(href = '/projects', class = 'btn adminDashboardButton') Projects  
-
-   p(id = 'signOut')
-     a(href = '/signout') Sign Out
-
-  footer
+	#userPanel
+		h2 Welcome User!
