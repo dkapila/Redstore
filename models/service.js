@@ -10,6 +10,7 @@ var serviceSchema = new Schema({
    user      : String,
    name      : String,
    description : String,
+   url      : String,
    enabled : Boolean
 });
 

@@ -12,3 +12,18 @@ block content
 				input(type='password', name = 'password', id = 'passwordField',  placeholder = 'password')
 			#loginbtn
 				button(type='submit', value='Sign in', id = 'loginSubmitbutton', class = 'btn btn-success') Sign In
+
+
+	#RegisterService
+		label(id = "RegisterServ") Register a new Service
+		form(action='/registerService', method = 'post')
+			#provider
+				input(type='text', name = 'provider', id = 'provider', placeholder = 'provider', autofocus="autofocus")
+			#name
+				input(type='text', name = 'name', id = 'name', placeholder = 'service name', autofocus="autofocus")			
+			#url
+				input(type='text', name = 'url', id = 'url',  placeholder = 'url')
+			#description
+				input(type='text', name = 'description', id = 'description',  placeholder = 'description')
+			#submitbtn		
+				button(type='submit', value='Register', id = 'loginSubmitbutton', class = 'btn btn-success') Register

@@ -32,6 +32,10 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.post('/login', routes.authenticate);
 
+app.post ('/registerService', routes.registerService);
+
+app.post ('/makeProject', routes.makeProject);
+
 app.get('/admin', routes.getAdminPage);
 app.get('/user', routes.getUserPage);
 app.get('/signout', routes.signOut);

@@ -8,7 +8,13 @@ block content
 	#adminPanel
 		h2 Welcome Admin!
 
-		button(class = 'btn btn-primary', id ='makeProjectBtn')	Make New Project
+	#LoginForm
+		form(action='/makeProject', method = 'post')
+			#user
+				input(type='text', name = 'project', id = 'project', placeholder = 'Project Name', autofocus="autofocus")
+			#loginbtn
+				button(type='submit', value='Sign in', id = 'loginSubmitbutton', class = 'btn btn-success') Make New Project
+
 
 		#listItem Projects
 		- each project in projects

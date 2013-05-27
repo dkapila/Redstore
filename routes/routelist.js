@@ -7,7 +7,7 @@ var Service = require('../models/service');
 var Project = require('../models/project');
 var config     = require ('../config.json');
 
-// mongoose.connect(MONGOOSE URL)
+mongoose.connect("mongodb://dkapila:xpress@alex.mongohq.com:10039/Jacobs");
 
 // GET home page.
 exports.index = function(req, res){
@@ -21,6 +21,41 @@ exports.signOut = function (req, res) {
     delete req.session.adminid;
     // redirect user to homepage
     res.redirect('/');
+}
+
+
+exports.makeProject = function (req, res) {
+	var project = new Project ({
+		name  : 'admin',
+		owner : req.session.adminid
+	});
+	project.save ();
+	res.redirect ('/admin/projects');
+}
+
+//registers a new service
+exports.registerService = function (req, res) {
+	var name           = req.body.name;
+	var description    = req.body.description;
+	var url      = req.body.url;
+	var provider = req.body.provider;
+
+
+	var service = new Service({
+		user     : provider,
+		name    :  name,
+		url     : url,
+		description : description,
+		enabled : 0
+	});
+	//add user
+	service.save();
+
+	console.log ("name  " + name);
+	console.log ("desc  " + description);
+	console.log ("url  " + url);
+	console.log ("prov  " + provider);
+	res.send('Service Registered.');	
 }
 
 exports.getAdminPage = function (req, res) {
